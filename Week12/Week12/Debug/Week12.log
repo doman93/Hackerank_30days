@@ -1,0 +1,4 @@
+﻿  Week12.cpp
+c:\users\21101_000\source\repos\week12\week12\week12.cpp(58): warning C4018: '<': signed/unsigned mismatch
+c:\users\21101_000\source\repos\week12\week12\week12.cpp(80): warning C4018: '<': signed/unsigned mismatch
+  Week12.vcxproj -> C:\Users\21101_000\source\repos\Week12\Debug\Week12.exe
