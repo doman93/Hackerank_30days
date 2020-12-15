@@ -1,1 +1,4 @@
-﻿  Test_code.vcxproj -> C:\Users\21101_000\source\repos\Test_code\Debug\Test_code.exe
+﻿  Test_code.cpp
+c:\users\21101_000\source\repos\hackerank_30days\test_code\test_code\test_code.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\21101_000\source\repos\hackerank_30days\test_code\test_code\test_code.cpp(48): warning C4018: '<': signed/unsigned mismatch
+  Test_code.vcxproj -> C:\Users\21101_000\source\repos\Hackerank_30days\Test_code\Debug\Test_code.exe
