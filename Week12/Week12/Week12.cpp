@@ -91,5 +91,7 @@ int main() {
 	//s1.printPerson();
 	//cout << "Grade: " << s.calculate() << "\n";
 
+	// int a[5]={0,1, 2, 3,4}
+	// vector<int> scores(a,a+5)
 	return 0;
 }
