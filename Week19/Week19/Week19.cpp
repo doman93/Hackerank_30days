@@ -28,9 +28,11 @@ int main() {
 	AdvancedArithmetic *myCalculator = new Calculator();
 
 	// Second method
-	/*Calculator Calculator1;
+	/*
+	Calculator Calculator1;
 	AdvancedArithmetic *myCalculator;
-	myCalculator = &Calculator1;*/
+	myCalculator = &Calculator1;
+	*/
 
 	int sum = myCalculator->divisorSum(n);
 	cout << "I implemented: AdvancedArithmetic\n" << sum;

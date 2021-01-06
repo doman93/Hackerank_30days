@@ -7,21 +7,25 @@ using namespace std;
 class Matrix
 {
 public:
-	vector<vector<int> > a;
-
-	Matrix & operator + (const Matrix &y)
-	{
-		for (int m = 0; m < y.a.size(); ++m)
-		{
-			for (int n = 0; n < y.a[0].size(); ++n)
-			{
-				this->a[m][n] = this->a[m][n] + y.a[m][n];
-			}
-		}
-		return *this;
-	}
-
+	vector<vector<int>> a;
+	
 };
+
+Matrix operator + ( Matrix &x, const  Matrix &y)
+{
+	Matrix z;
+	z.a.resize(y.a.size());
+	for (int m = 0; m < y.a.size(); ++m)
+	{
+		z.a[m].resize(y.a[0].size());
+		for (int n = 0; n < y.a[0].size(); ++n)
+		{
+			
+			z.a[m][n] = x.a[m][n] + y.a[m][n];
+		}
+	}
+	return z;
+}
 
 int main() {
 	int cases, k;
