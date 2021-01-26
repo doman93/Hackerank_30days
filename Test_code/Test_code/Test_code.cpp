@@ -1,66 +1,111 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <algorithm>
+#include <string>
 using namespace std;
-class Matrix
-{
-public:
-	vector<vector<int>> a;
-	
-};
+  
 
-Matrix operator + ( Matrix &x, const  Matrix &y)
-{
-	Matrix z;
-	z.a.resize(y.a.size());
-	for (int m = 0; m < y.a.size(); ++m)
-	{
-		z.a[m].resize(y.a[0].size());
-		for (int n = 0; n < y.a[0].size(); ++n)
-		{
-			
-			z.a[m][n] = x.a[m][n] + y.a[m][n];
-		}
+vector<string> split_string(string);
+
+// Complete the countApplesAndOranges function below.
+void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vector<int> oranges) {
+	int num_apple = 0, num_orange = 0;
+	for (int i = 0; i < apples.size(); ++i) {
+		if (apples[i] + a >= s && apples[i] + a <=   t) 	++num_apple;
 	}
-	return z;
+	for (int i = 0; i < oranges.size(); ++i) {
+		if (oranges[i] + b >= s && oranges[i] + b <=   t)  ++num_orange;
+	}
+	cout << num_apple << endl;
+	cout << num_orange << endl;
+
 }
 
-int main() {
-	int cases, k;
-	cin >> cases;
-	for (k = 0; k < cases; k++) {
-		Matrix x;
-		Matrix y;
-		Matrix result;
-		int n, m, i, j;
-		cin >> n >> m;
-		for (i = 0; i < n; i++) {
-			vector<int> b;
-			int num;
-			for (j = 0; j < m; j++) {
-				cin >> num;
-				b.push_back(num);
-			}
-			x.a.push_back(b);
-		}
-		for (i = 0; i < n; i++) {
-			vector<int> b;
-			int num;
-			for (j = 0; j < m; j++) {
-				cin >> num;
-				b.push_back(num);
-			}
-			y.a.push_back(b);
-		}
-		result = x + y;
-		for (i = 0; i < n; i++) {
-			for (j = 0; j < m; j++) {
-				cout << result.a[i][j] << " ";
-			}
-			cout << endl;
-		}
+int main()
+{
+	string st_temp;
+	getline(cin, st_temp);
+
+	vector<string> st = split_string(st_temp);
+
+	int s = stoi(st[0]);
+
+	int t = stoi(st[1]);
+
+	string ab_temp;
+	getline(cin, ab_temp);
+
+	vector<string> ab = split_string(ab_temp);
+
+	int a = stoi(ab[0]);
+
+	int b = stoi(ab[1]);
+
+	string mn_temp;
+	getline(cin, mn_temp);
+
+	vector<string> mn = split_string(mn_temp);
+
+	int m = stoi(mn[0]);
+
+	int n = stoi(mn[1]);
+
+	string apples_temp_temp;
+	getline(cin, apples_temp_temp);
+
+	vector<string> apples_temp = split_string(apples_temp_temp);
+
+	vector<int> apples(m);
+
+	for (int i = 0; i < m; i++) {
+		int apples_item = stoi(apples_temp[i]);
+
+		apples[i] = apples_item;
 	}
+
+	string oranges_temp_temp;
+	getline(cin, oranges_temp_temp);
+
+	vector<string> oranges_temp = split_string(oranges_temp_temp);
+
+	vector<int> oranges(n);
+
+	for (int i = 0; i < n; i++) {
+		int oranges_item = stoi(oranges_temp[i]);
+
+		oranges[i] = oranges_item;
+	}
+
+	countApplesAndOranges(s, t, a, b, apples, oranges);
+
 	return 0;
+}
+
+vector<string> split_string(string input_string) {
+	string::iterator new_end = unique(input_string.begin(), input_string.end(), [](const char &x, const char &y) {
+		return x == y and x == ' ';
+	});
+
+	input_string.erase(new_end, input_string.end());
+
+	while (input_string[input_string.length() - 1] == ' ') {
+		input_string.pop_back();
+	}
+
+	vector<string> splits;
+	char delimiter = ' ';
+
+	size_t i = 0;
+	size_t pos = input_string.find(delimiter);
+
+	while (pos != string::npos) {
+		splits.push_back(input_string.substr(i, pos - i));
+
+		i = pos + 1;
+		pos = input_string.find(delimiter, i);
+	}
+
+	splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+
+	return splits;
 }
